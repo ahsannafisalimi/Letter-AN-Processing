@@ -1,7 +1,7 @@
 float pitch = 0;
 float yaw = 0;
 float roll = 0;
-boolean upPressed, downPressed, leftPressed, rightPressed, ltPressed, gtPressed;
+boolean pitchupPressed, pitchdownPressed, yawleftPressed, yawrightPressed, rollleftPressed, rollrightPressed;
 PShape Ahsan;
 
 void setup() {
@@ -207,23 +207,23 @@ void draw() {
   background(220);
   noStroke();
   
-  if (upPressed) {
+  if (pitchupPressed) {
     pitch -= radians(1);
   }
-  if (downPressed) {
+  if (pitchdownPressed) {
     pitch += radians(1);
   }
-  if (leftPressed) {
+  if (yawleftPressed) {
     yaw -= radians(1);
   }
-  if (rightPressed) {
+  if (yawrightPressed) {
     yaw += radians(1);
   }
   
-  if (ltPressed) {
+  if (rollleftPressed) {
     roll -= radians(1);
   }
-  if (gtPressed) {
+  if (rollrightPressed) {
     roll += radians(1);
   }
 
@@ -239,43 +239,43 @@ void draw() {
 
 void keyPressed() {
   if (key == 'w') {
-    upPressed = true;
+    pitchupPressed = true;
   }
   if (key == 's') {
-    downPressed = true;
+    pitchdownPressed = true;
   }
   if (key == 'a') {
-    leftPressed = true;
+    yawleftPressed = true;
   }
   if (key == 'd') {
-    rightPressed = true;
+    yawrightPressed = true;
   }
   if (key == 'q') {
-    ltPressed = true;
+    rollleftPressed = true;
   }
   if (key == 'e') {
-    gtPressed = true;
+    rollrightPressed = true;
   }
 }
 
 void keyReleased() {
   if (key == 'w') {
-    upPressed = false;
+    pitchupPressed = false;
   }
   if (key == 's') {
-    downPressed = false;
+    pitchdownPressed = false;
   }
   if (key == 'a') {
-    leftPressed = false;
+    yawleftPressed = false;
   }
   if (key == 'd') {
-    rightPressed = false;
+    yawrightPressed = false;
   }
   if (key == 'q') {
-    ltPressed = false;
+    rollleftPressed = false;
   }
   if (key == 'e') {
-    gtPressed = false;
+    rollrightPressed = false;
   }
 }
 
@@ -284,7 +284,6 @@ void addDepth(PShape AN, float x1, float y1, float z1, float x2, float y2, float
   AN.vertex(x2, y2, z2);
   AN.vertex(x3, y3, z3);
   AN.vertex(x4, y4, z4);
-  AN.vertex(x1, y1, z1);
 }
 
 void centerObject(PShape obj) {
